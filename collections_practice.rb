@@ -22,7 +22,6 @@ end
 #the each method and build a new array to return 
 
 
-
 def swap_elements_from_to(array, index, destination_index)
     array[index], array[destination_index]  = array[destination_index],  array[index]
     array
@@ -33,22 +32,24 @@ def reverse_array(array)
 end 
 
 def kesha_maker(array)
-    new_string = []
-
     array.each do |word|
-        new_string << kesha_maker_word(word)
+        word[2] = "$"
     end
-    new_string
 end
 
-def kesha_maker_word(word)
-    word[2] = "$"
-    word 
-end
 
 #takes a string nad passes to it starts with?
 def find_a(array)
     array.select do |word|
+        word[0] == "a"
+    end
+end
+
+
+#using find all method 
+
+def find_a(array)
+    array.find_all do |word|
         word[0] == "a"
     end
 end
@@ -58,14 +59,24 @@ def sum_array(array)
     array.sum
 end 
 
+# using reduce method
+    # array.reduce(:+)
+
+  # using inject method (short)
+     # array.inject(:+)
+
+  # using inject method (long)
+     # array.inject do |sum,x|
+     #  sum + x
+     # end
 
 #adds "s" to each wrd in the array excep the second element
 def add_s(array)
     array.map do |word|
-        if word != array[1]
-            word << "s"
-        else 
+        if word == word
             word 
+        else 
+            word + "s"
         end
     end 
 end 
